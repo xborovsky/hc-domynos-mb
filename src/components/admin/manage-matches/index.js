@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import { fetchAll, deleteMatch } from '../../../dao/match-dao';
+import { fetchAll } from '../../../dao/match-dao';
+import { fetchList } from '../../../dao/common-dao';
 import { refTypes } from '../../../dao/ref-types';
 import { deleteById } from '../../../dao/common-dao';
 import MatchesTable from './MatchesTable';
@@ -26,12 +27,24 @@ export default class ManageMatches extends Component {
             show : false,
             message : null,
             matchId : null
-        }
+        },
+        teams : []
     };
 
     componentDidMount() {
-        fetchAll()
-            .then(matches => this.setState({ matches, showLoading : false }))
+        fetchList(refTypes.team).then(teams => {
+            this.setState({ teams });
+            fetchAll()
+                .then(matches => {
+                    matches.forEach(match => {
+                        const homeTeam = teams.filter(team => team.id === match.home)[0].name;
+                        const awayTeam = teams.filter(team => team.id === match.away)[0].name;
+                        match.homeTeamName = homeTeam;
+                        match.awayTeamName = awayTeam;
+                    });
+                    this.setState({ matches, showLoading : false })
+                });
+        });
     }
 
     showDeleteMatchConfirm = match => {
@@ -73,13 +86,16 @@ export default class ManageMatches extends Component {
         });
     };
 
-    handleEditMatch = match => {};
+    handleEditMatch = match => {
+        console.log('TODO');
+    };
 
     render() {
-        const { matches, showError, errorMessage, actionConfirm } = this.state;
+        const { matches, showError, errorMessage, actionConfirm, showLoading } = this.state;
 
         return (
             <>
+                <h2>Manage matches</h2>
                 { showError && <Alert type="error" message={errorMessage} onClose={this.handleAlertClose} /> }
                 {
                     <ConfirmBox
@@ -92,6 +108,7 @@ export default class ManageMatches extends Component {
                     <Grid item xs></Grid>
                     <Grid item xs={12} md={10} lg={8}>
                         <ManageMatchesWithLoading
+                            showLoading={showLoading}
                             matches={matches}
                             onDelete={match => this.showDeleteMatchConfirm(match)}
                             onEdit={match => this.handleEditMatch(match)} />

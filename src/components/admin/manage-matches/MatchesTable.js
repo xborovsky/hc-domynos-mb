@@ -29,8 +29,8 @@ const MatchesTable = ({ matches, onEdit, onDelete }) =>
                         <TableRow key={match.id}>
                             <TableCell>{ cnt+1 }</TableCell>
                             <TableCell>{match.datetime}</TableCell>
-                            <TableCell>{match.home}</TableCell>
-                            <TableCell>{match.away}</TableCell>
+                            <TableCell>{match.homeTeamName}</TableCell>
+                            <TableCell>{match.awayTeamName}</TableCell>
                             <TableCell>{match.homeScore} : {match.awayScore} {match['is_so_lose'] || match['is_so_win'] ? 'PP' : null}</TableCell>
                             <TableCell>{match.place}</TableCell>
                             <TableCell>
