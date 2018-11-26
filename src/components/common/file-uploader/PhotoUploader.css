@@ -1,0 +1,14 @@
+.photo-uploader {
+    margin-top: 30px;
+}
+
+.progress {
+    display: block;
+    margin-top: 20px;
+}
+
+.image {
+    margin: 30px auto 0;
+    width : 200px !important;
+    height: 200px !important;
+}

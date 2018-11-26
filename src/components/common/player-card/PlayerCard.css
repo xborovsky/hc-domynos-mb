@@ -1,0 +1,60 @@
+.player-card {
+    position: relative;
+    border: 5px outset black;
+    border-radius: 15px !important;
+}
+
+.player-number {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    padding: 5px 15px;
+    font-size: 30pt;
+    background-color: #ce1e4b;
+    z-index: 10;
+    color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.player-card-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.player-card h5 {
+    font-size: 20pt;
+    color: black;
+    margin-top: 2rem;
+    margin-bottom: 5px;
+}
+
+.player-card h6 {
+    font-size: 14pt;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 1rem;
+}
+
+.player-card .players-photo {
+    height: 200px;
+}
+
+.player-card .player-stats {
+    margin-bottom: 1rem;
+    overflow-x: auto;
+}
+
+.player-card .player-stats tr {
+    height: 40px;
+}
+
+.player-card .player-stats th {
+    background-color: #ce1e4b;
+    color: white;
+    font-size: 9pt !important;
+}
+
+.player-card .player-stats th, .player-card .player-stats td {
+    padding-right: 24px;
+}

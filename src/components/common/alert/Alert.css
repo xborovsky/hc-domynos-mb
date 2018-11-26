@@ -1,0 +1,33 @@
+
+.alert-wrapper {
+    margin: 0 auto !important;
+    position: relative;
+    top: 2em;
+}
+
+.alert-wrapper.error {
+    background-color: #d32f2f !important;
+}
+
+.alert-wrapper.info {
+    background-color: #1976d2 !important;
+}
+
+.alert-wrapper.warning {
+    background-color: #ffa000 !important;
+}
+
+.alert-wrapper.success {
+    background-color: #43a047 !important;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.alert-icon {
+    font-size: 16pt;
+    margin-right: 0.5em;
+}

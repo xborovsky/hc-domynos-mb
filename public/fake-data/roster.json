@@ -1,0 +1,47 @@
+[
+    {
+        "id" : 1,
+        "name" : "Marek Borovský",
+        "number" : 23,
+        "position" :  "C",
+        "stick" : "L",
+        "birthday" : "18.08.1988",
+        "photo" : "23.png"
+    },
+    {
+        "id" : 2,
+        "name" : "Marek Neumann",
+        "number" : 1,
+        "position" :  "GK",
+        "stick" : "L",
+        "birthday" : null,
+        "photo" : null
+    },
+    {
+        "id" : 3,
+        "name" : "Marek Niesner",
+        "number" : 22,
+        "position" :  "LW",
+        "stick" : "L",
+        "birthday" : null,
+        "photo" : null
+    },
+    {
+        "id" : 4,
+        "name" : "Miroslav Čermák",
+        "number" : 99,
+        "position" :  "RW",
+        "stick" : "R",
+        "birthday" : null,
+        "photo" : null
+    },
+    {
+        "id" : 5,
+        "name" : "Tomáš Meruna",
+        "number" : 33,
+        "position" :  "RD",
+        "stick" : "R",
+        "birthday" : null,
+        "photo" : null
+    }
+]

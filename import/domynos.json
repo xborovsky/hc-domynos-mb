@@ -1,0 +1,396 @@
+{
+    "roster" : {
+        "-LEvJ6w8YuUXtU6K3G2I" : {
+            "name" : "Marek Borovský",
+            "number" : 23,
+            "position" : "C",
+            "image" : "23.jpg"
+        },
+        "-LEvJNVy2UXDdYIa-iw8" : {
+            "name" : "Lukáš Tůma",
+            "number" : 73,
+            "position" : "LW",
+            "image" : "73.jpg"
+        },
+        "-LEvJX0DU85wQE7CoRvT" : {
+            "name" : "Karel Kos",
+            "number" : 91,
+            "position" : "LD",
+            "image" : "91.jpg"
+        },
+        "-LEvJjg_znR-BgWkEtAh" : {
+            "name" : "Jan Jíša",
+            "number" : 4,
+            "position" : "LD",
+            "image" : "4.jpg"
+        },
+        "-LEvJqm_2vzKpJeoEx8-" : {
+            "name" : "Miroslav Čermák",
+            "number" : 88,
+            "position" : "LW",
+            "image" : "88.jpg"
+        },
+        "-LEvJzT3Ya-tRnU8fbv2" : {
+            "name" : "Marek Neumann",
+            "number" : 1,
+            "position" : "GK",
+            "image" : "1.jpg"
+        },
+        "-LEvK64_Celay8Fy7phz" : {
+            "name" : "Tomáš Meruna",
+            "number" : 8,
+            "position" : "RD",
+            "image" : "8.jpg"
+        },
+        "-LEvKGTAwJ4NeXAQ9sEY" : {
+            "name" : "Peter Urbánek",
+            "number" : 22,
+            "position" : "RW",
+            "image" : "22.jpg"
+        },
+        "-LEvKNzwLsfhVIt-yFi-" : {
+            "name" : "Jakub Kopáček",
+            "number" : 55,
+            "position" : "RD",
+            "image" : "55.jpg"
+        },
+        "-LEvKbivY2TXDpzPaRbK" : {
+            "name" : "Tomáš Vlček",
+            "number" : 69,
+            "position" : "RD",
+            "image" : "69.jpg"
+        },
+        "-LEvKi6nCkIOIDG_vqNT" : {
+            "name" : "Miroslav Sommer",
+            "number" : 66,
+            "position" : "LW",
+            "image" : "66.jpg"
+        },
+        "-LEvKoUAlOvOEKxmLeYt" : {
+            "name" : "Lukáš Plaček",
+            "number" : 71,
+            "position" : "C",
+            "image" : "71.jpg"
+        },
+        "-LEvL-9OwY81jtLK4vRo" : {
+            "name" : "Daniel Satin",
+            "number" : 9,
+            "position" : "RW",
+            "image" : "9.jpg"
+        },
+        "-LEvL6DPIGfTGSiECiGn" : {
+            "name" : "Martin Schiefner",
+            "number" : 25,
+            "position" : "C",
+            "image" : "25.jpg"
+        },
+        "-LEvLHeOGiwdrjt_24tJ" : {
+            "name" : "Jakub Semerád",
+            "number" : 90,
+            "position" : "RW",
+            "image" : "90.jpg"
+        },
+        "-LEvLUetxwECfzu5x42_" : {
+            "name" : "Lukáš Votava",
+            "number" : 13,
+            "position" : "RD",
+            "image" : "13.jpg"
+        },
+        "-LEvLUetxwECfzu5x42Z" : {
+            "name" : "Marek Niessner",
+            "number" : 24,
+            "position" : "RW",
+            "image" : "24.jpg"
+        }
+    },
+    "player_stats" : {
+        "-LEkjWZWqgh0nHltmK7M" : {
+            "player_id" : "-LEvJ6w8YuUXtU6K3G2I",
+            "gp" : 1,
+            "g" : 2,
+            "a" : 1
+        },
+        "-LEkjWZXyLYyHX18d-Nc" : {
+            "player_id" : "-LEvLUetxwECfzu5x42_",
+            "gp" : 1,
+            "g" : 2,
+            "a" : 1
+        },
+        "-LEkjWZYlNGsVaMovmED" : {
+            "player_id" : "-LEvLHeOGiwdrjt_24tJ",
+            "gp" : 1,
+            "g" : 2,
+            "a" : 1
+        },
+        "-LEkjWZYlNGsVaMovmEE" : {
+            "player_id" : "-LEvL-9OwY81jtLK4vRo",
+            "gp" : 1,
+            "g" : 2,
+            "a" : 1
+        }
+    },
+    "gk_stats" : {
+        "-LEvJzT3Ya-tRnU8fbv9" : {
+            "gk_id" : "-LEvJzT3Ya-tRnU8fbv2",
+            "gp" : 1,
+            "ga" : 1,
+            "sa" : 20,
+            "so" : 0
+        }
+    },
+    "matches" : {
+        "-LEu6H7cllCT8Xv3CFil" : {
+            "home" : "HC Domynos Praha",
+            "away" : "HC Rafani",
+            "homeScore" : 5,
+            "awayScore" : 0,
+            "place" : "Velká Hala Sparta",
+            "datetime" : "07.10.2018 21:00",
+            "goals" : [
+                {
+                    "g" : "-LEvKi6nCkIOIDG_vqNT",
+                    "a1" : "-LEvJjg_znR-BgWkEtAh",
+                    "a2" : "-LEvLUetxwECfzu5x42Z"
+                },
+                {
+                    "g" : "-LEvKi6nCkIOIDG_vqNT",
+                    "a1" : "-LEvLUetxwECfzu5x42Z",
+                    "a2" : "-LEvJjg_znR-BgWkEtAh"
+                },
+                {
+                    "g" : "-LEvLUetxwECfzu5x42Z",
+                    "a1" : "-LEvJjg_znR-BgWkEtAh",
+                    "a2" : "-LEvL6DPIGfTGSiECiGn"
+                },
+                {
+                    "g" : "-LEvKi6nCkIOIDG_vqNT",
+                    "a1" : "-LEvKNzwLsfhVIt-yFi-",
+                    "a2" : "-LEvLUetxwECfzu5x42_"
+                },
+                {
+                    "g" : "-LEvKi6nCkIOIDG_vqNT"
+                }
+            ],
+            "is_so_win" : false,
+            "is_so_lose" : false,
+            "roster" : []
+        },
+        "-LEu6H7gyI75bVJEeec_" : {
+            "home" : "Kostatky www.lions.cz",
+            "away" : "HC Domynos Praha",
+            "homeScore" : 2,
+            "awayScore" : 3,
+            "place" : "ZS Letňany",
+            "datetime" : "11.10.2018 19:25",
+            "goals" : [
+                {
+                    "g" : "-LEvKbivY2TXDpzPaRbK",
+                    "a1" : "-LEvJjg_znR-BgWkEtAh"
+                },
+                {
+                    "g" : "-LEvJjg_znR-BgWkEtAh",
+                    "a1" : "-LEvLHeOGiwdrjt_24tJ"
+                }
+            ],
+            "is_so_win" : true,
+            "is_so_lose" : false,
+            "roster" : []
+        },
+        "-LEu6H7hLA7q73L5P0vh" : {
+            "home" : "HC Domynos Praha",
+            "away" : "HC Bílá Hora",
+            "homeScore" : 6,
+            "awayScore" : 4,
+            "place" : "Velká Hala Sparta",
+            "datetime" : "21.10.2018 21:00",
+            "goals" : [
+                {
+                    "g" : "-LEvL6DPIGfTGSiECiGn",
+                    "a1" : "-LEvLUetxwECfzu5x42Z"
+                },
+                {
+                    "g" : "-LEvKbivY2TXDpzPaRbK",
+                    "a1" : "-LEvLUetxwECfzu5x42_"
+                },
+                {
+                    "g" : "-LEvL6DPIGfTGSiECiGn",
+                    "a1" : "-LEvLUetxwECfzu5x42Z"
+                },
+                {
+                    "g" : "-LEvKGTAwJ4NeXAQ9sEY",
+                    "a1" : "-LEvLUetxwECfzu5x42_"
+                },
+                {
+                    "g" : "-LEvKbivY2TXDpzPaRbK",
+                    "a1" : "-LEvJjg_znR-BgWkEtAh"
+                },
+                {
+                    "g" : "-LEvJX0DU85wQE7CoRvT",
+                    "a1" : "-LEvJjg_znR-BgWkEtAh",
+                    "a2" : "-LEvLUetxwECfzu5x42Z"
+                }
+            ],
+            "is_so_win" : false,
+            "is_so_lose" : false,
+            "roster" : []
+        },
+        "-LEu6H7il1xQFg7j2Igp" : {
+            "home" : "HC Domynos Praha",
+            "away" : "HC Torpedo",
+            "homeScore" : 4,
+            "awayScore" : 2,
+            "place" : "ZS Letňany",
+            "datetime" : "31.10.2018 21:20",
+            "goals" : [
+                {
+                    "g" : "-LEvLUetxwECfzu5x42Z",
+                    "a1" : "-LEvKNzwLsfhVIt-yFi-"
+                },
+                {
+                    "g" : "-LEvJ6w8YuUXtU6K3G2I",
+                    "a1" : "-LEvKNzwLsfhVIt-yFi-"
+                },
+                {
+                    "g" : "-LEvJ6w8YuUXtU6K3G2I",
+                    "a1" : "-LEvL6DPIGfTGSiECiGn"
+                },
+                {
+                    "g" : "-LEvJ6w8YuUXtU6K3G2I",
+                    "a1" : "-LEvL6DPIGfTGSiECiGn"
+                }
+            ],
+            "is_so_win" : false,
+            "is_so_lose" : false,
+            "roster" : []
+        },
+        "-LEu6H7il1xQFg7j2Igq" : {
+            "home" : "HC Walkers",
+            "away" : "HC Domynos Praha",
+            "homeScore" : 1,
+            "awayScore" : 3,
+            "place" : "ZS Letňany",
+            "datetime" : "02.11.2018 21:20",
+            "goals" : [
+                {
+                    "g" : "-LEvLUetxwECfzu5x42Z",
+                    "a1" : "-LEvLUetxwECfzu5x42_"
+                },
+                {
+                    "g" : "-LEvLHeOGiwdrjt_24tJ",
+                    "a1" : "-LEvLUetxwECfzu5x42Z"
+                },
+                {
+                    "g" : "-LEvLUetxwECfzu5x42Z"
+                }
+            ],
+            "is_so_win" : false,
+            "is_so_lose" : false,
+            "roster" : []
+        },
+        "-LEu6H7jiWyn4EIbe9ff" : {
+            "home" : "HC Domynos Praha",
+            "away" : "BMZ",
+            "homeScore" : 3,
+            "awayScore" : 4,
+            "place" : "Velká Hala Sparta",
+            "datetime" : "11.11.2018 21:00",
+            "goals" : [
+                {
+                    "g" : "-LEvK64_Celay8Fy7phz",
+                    "a1" : "-LEvJqm_2vzKpJeoEx8-",
+                    "a2" : "-LEvKbivY2TXDpzPaRbK"
+                },
+                {
+                    "g" : "-LEvJ6w8YuUXtU6K3G2I",
+                    "a1" : "-LEvLUetxwECfzu5x42Z"
+                },
+                {
+                    "g" : "-LEvJqm_2vzKpJeoEx8-",
+                    "a1" : "-LEvKbivY2TXDpzPaRbK"
+                }
+            ],
+            "is_so_win" : false,
+            "is_so_lose" : false,
+            "roster" : []
+        },
+        "-LEu6H7jiWyn4EIbe9fg" : {
+            "home" : "Itel - servis",
+            "away" : "HC Domynos Praha",
+            "homeScore" : 6,
+            "awayScore" : 1,
+            "place" : "ZS Letňany",
+            "datetime" : "15.11.2018 19:25",
+            "goals" : [
+                {
+                    "g" : "-LEvJjg_znR-BgWkEtAh",
+                    "a1" : "-LEvJ6w8YuUXtU6K3G2I"
+                }
+            ],
+            "is_so_win" : false,
+            "is_so_lose" : false,
+            "roster" : []
+        },
+        "-LEu6H7jiWyn4EIbe9fh" : {
+            "home" : "HC Domynos Praha",
+            "away" : "HC Cormoran Praha",
+            "homeScore" : null,
+            "awayScore" : null,
+            "place" : "Velká Hala Sparta",
+            "datetime" : "25.11.2018 21:00",
+            "goals" : [],
+            "is_so_win" : false,
+            "is_so_lose" : false,
+            "roster" : []
+        }
+    },
+    "teams" : {
+        "AEu6H7jiWyn4EIbe9fa" : {
+            "name" : "HC Domynos Praha",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fb" : {
+            "name" : "Itel - servis",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fc" : {
+            "name" : "HC Shewci Praha",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fd" : {
+            "name" : "Kosatky www.lions.cz",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fe" : {
+            "name" : "HC Bílá Hora",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9ff" : {
+            "name" : "HC Torpedo",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fg" : {
+            "name" : "HC Rafani",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fh" : {
+            "name" : "HC Sršni Praha",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fi" : {
+            "name" : "HC Walkers",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fj" : {
+            "name" : "BMZ",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fk" : {
+            "name" : "HC Cormoran Praha",
+            "logo" : null
+        },
+        "AEu6H7jiWyn4EIbe9fl" : {
+            "name" : "HC Dundee",
+            "logo" : null
+        }
+    }
+}

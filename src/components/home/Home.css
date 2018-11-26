@@ -1,0 +1,73 @@
+.cover-wrapper {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.cover-img {
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+}
+
+.overlay-wrapper {
+    position: absolute;
+    top: 0;
+    height: 99%;
+    width: 100%;
+    z-index: 10;
+    -ms-transform: skewX(-30deg); /* IE 9 */
+    -webkit-transform: skewX(-30deg); /* Safari */
+    transform: skewX(-30deg); /* Standard syntax */
+}
+
+.overlay-rect {
+    position: relative;
+    left: 60%;
+    width: 7rem;
+    height: 100%;
+    border: 3px solid black;
+    background-color: #182547;
+    display: inline-block;
+}
+
+.overlay-rect:nth-child(1) {
+    border-right-width: 1.5px;
+}
+
+.overlay-rect:nth-child(2) {
+    background-color: #fff;
+    border-left-width: 1.5px;
+    border-right-width: 1.5px;
+}
+
+.overlay-rect:nth-child(2) {
+    border-left-width: 1.5px;
+}
+
+.logo-wrapper {
+    position: absolute;
+    top: 30vh;
+    right: 25%;
+    z-index: 20;
+}
+
+.logo-wrapper img {
+    width: 12rem;
+}
+
+.players-intro {
+    font-size: 50pt;
+    display: table;
+}
+
+.players-intro .tag {
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    padding: 0 3rem;
+    margin-bottom: 10px;
+    display: inherit;
+    letter-spacing: 10px;
+}

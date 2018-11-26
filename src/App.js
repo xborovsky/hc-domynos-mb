@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import { Header, Footer } from './components/layout';
+import Routes from './components/Routes';
+import AdminRoutes from './components/admin/AdminRoutes';
+import AdminMenu from './components/admin/AdminMenu';
+
 import './App.css';
 
 class App extends Component {
   render() {
+    const isAdmin = true; // TODO resit pres prihlaseni
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="content">
+        <Header />
+        <Routes />
+        {
+          isAdmin &&
+          <>
+            <AdminMenu />
+            <div className="admin-content">
+              <AdminRoutes />
+            </div>
+          </>
+        }
+        <Footer />
       </div>
     );
   }

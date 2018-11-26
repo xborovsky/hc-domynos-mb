@@ -1,0 +1,33 @@
+.stats-wrapper {
+    margin-bottom: 4rem;
+}
+
+.stats {
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.stats th {
+    font-size: 13pt !important;
+    cursor: pointer;
+    background-color: #ce1e4b;
+    color: white;
+}
+
+.stats td {
+    font-size: 11pt;
+}
+
+.stats tr {
+    font-size: 12pt !important;
+    background-color: white;
+}
+
+.stats tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.stats .th-text, .stats .th-icon {
+    vertical-align: middle;
+}

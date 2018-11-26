@@ -1,0 +1,61 @@
+.match-wrapper {
+    margin-bottom: 3rem;
+}
+
+.match-grid-wrapper {
+    margin-bottom: 1rem !important;
+}
+
+.match-team {
+    padding: 0.5rem 1rem;
+    font-size: 16pt;
+    color: white;
+}
+
+.match-team.home {
+    background-color: #182547;
+}
+
+.match-team.away {
+    background-color: #ce1e4b;
+}
+
+.match-score-wrapper {
+    padding : 0 !important;
+}
+
+.match-score {
+    background-color: #feca0a;
+    color: black;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: 600;
+    line-height: 36pt;
+}
+
+.match-score div {
+    height: 100%;
+    vertical-align: middle;
+}
+
+.match-team-logo {
+    display: inline-block !important;
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+
+.match-place-wrapper {
+    background-color: black;
+    padding: 0.6rem !important;
+}
+
+.match-place {
+    display: inline;
+    margin-right: 10px;
+    font-size: 13pt;
+}
+
+.match-time {
+    display: inline;
+    font-size: 10pt;
+}
