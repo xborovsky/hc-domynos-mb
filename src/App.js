@@ -11,20 +11,22 @@ class App extends Component {
   render() {
     const isAdmin = true; // TODO resit pres prihlaseni
     return (
-      <div className="content">
-        <Header />
-        <Routes />
-        {
-          isAdmin &&
-          <>
-            <AdminMenu />
-            <div className="admin-content">
-              <AdminRoutes />
-            </div>
-          </>
-        }
+      <>
+        <div className="content">
+          <Header />
+          <Routes />
+          {
+            isAdmin &&
+            <>
+              <AdminMenu />
+              <div className="admin-content">
+                <AdminRoutes />
+              </div>
+            </>
+          }
+        </div>
         <Footer />
-      </div>
+      </>
     );
   }
 }
