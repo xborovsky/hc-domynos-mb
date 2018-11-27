@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import { formConfig } from './form-config';
 import { validateFormField } from '../../../util/form-validator';
-import firebase from '../../../util/firebase';
 import Alert from '../../common/alert';
 import Btn from '../../common/button';
 import { Input } from '../../common/forms';
 
 import './Login.css';
+import { logInUser } from './redux/thunk';
 
-export default class Login extends Component {
+class Login extends Component {
 
     state = {
         formConfig: formConfig,
@@ -64,14 +66,7 @@ export default class Login extends Component {
             }
         }
 
-        firebase.auth().signInWithEmailAndPassword(username, password)
-            .then(res => console.log('success', res) )
-            .catch(err =>
-                this.setState({
-                    showAlert : true,
-                    invalidMessage : err.message
-                })
-            );
+        this.props.logIn(username, password);
     };
 
     handleAlertClose = () => {
@@ -83,10 +78,13 @@ export default class Login extends Component {
 
     render() {
         const { formConfig, invalidMessage, showAlert } = this.state;
+        const { loggedIn, logInError } = this.props;
 
         return (
+            loggedIn ? <Redirect to='/admin' /> :
             <>
                 { showAlert && <Alert type="error" message={invalidMessage} onClose={this.handleAlertClose} /> }
+                { logInError && <Alert type="error" message={logInError} /> }
                 <div className="login-page">
                     <Paper className="form">
                         <form className="login-form" noValidate autoComplete="off" onSubmit={event => this.handleSubmit(event)}>
@@ -114,3 +112,14 @@ export default class Login extends Component {
     }
 
 }
+
+const mapStateToProps = state => ({
+    loggedIn : state.authReducer.loggedIn,
+    logInError : state.authReducer.error
+});
+
+const mapDispatchToProps = dispatch => ({
+    logIn : (username, password) => dispatch(logInUser(username, password))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

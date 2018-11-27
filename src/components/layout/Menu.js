@@ -9,26 +9,35 @@ import PollIcon from '@material-ui/icons/Poll';
 import EventIcon from '@material-ui/icons/Event';
 import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Menu = ({open, onMenuToggle}) =>
     <Drawer anchor="left" open={open} onClick={() => onMenuToggle(false)}>
         <List>
-            <ListItem button>
-                <ListItemIcon><ImportContactsIcon /></ListItemIcon>
-                <ListItemText>Team</ListItemText>
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon><PeopleIcon /></ListItemIcon>
-                <ListItemText>Players</ListItemText>
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon><EventIcon /></ListItemIcon>
-                <ListItemText>Matches</ListItemText>
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon><PollIcon /></ListItemIcon>
-                <ListItemText>Stats</ListItemText>
-            </ListItem>
+            <Link to="/team">
+                <ListItem button>
+                    <ListItemIcon><ImportContactsIcon /></ListItemIcon>
+                    <ListItemText>Team</ListItemText>
+                </ListItem>
+            </Link>
+            <Link to="/roster">
+                <ListItem button>
+                    <ListItemIcon><PeopleIcon /></ListItemIcon>
+                    <ListItemText>Players</ListItemText>
+                </ListItem>
+            </Link>
+            <Link to="/matches">
+                <ListItem button>
+                    <ListItemIcon><EventIcon /></ListItemIcon>
+                    <ListItemText>Matches</ListItemText>
+                </ListItem>
+            </Link>
+            <Link to="/stats">
+                <ListItem button>
+                    <ListItemIcon><PollIcon /></ListItemIcon>
+                    <ListItemText>Stats</ListItemText>
+                </ListItem>
+            </Link>
         </List>
     </Drawer>
 ;

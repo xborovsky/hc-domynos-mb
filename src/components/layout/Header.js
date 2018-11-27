@@ -35,12 +35,10 @@ class Header extends Component {
                         </IconButton>
 
                         <Avatar alt="Logo HC Domynos Praha" src={logo} className="logo" />
-                        {/*<Link to="/">*/}
-                            <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
-                                HC Domynos
-                            </Typography>
-                        {/*</Link>*/}
-                        <Button color="inherit">Login</Button>
+                        <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
+                            <Link to="/">HC Domynos</Link>
+                        </Typography>
+                        <Button color="inherit"><Link to="/login">Login</Link></Button>
                     </Toolbar>
                 </AppBar>
                 <Menu open={menuOpen} onMenuToggle={(open) => this.handleMenuToggle(open)} />

@@ -14,6 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import Collapse from '@material-ui/core/Collapse';
+import { Link } from 'react-router-dom';
 
 export default class AdminMenu extends Component {
 
@@ -42,49 +43,61 @@ export default class AdminMenu extends Component {
         return (
             <Drawer anchor="left" variant="permanent" className="admin-menu">
                 <List>
-                    {/*<Link to='/admin/manage-roster'>*/}
+                    <Link to='/admin/manage-roster'>
                         <ListItem button onClick={() => this.handleMainMenuClick('manageRoster')}>
                             <ListItemIcon><PeopleIcon /></ListItemIcon>
                             <ListItemText>Manage roster</ListItemText>
                             {submenu.manageRoster ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                         </ListItem>
-                    {/*</Link>*/}
+                    </Link>
+
                     <Collapse in={submenu.manageRoster} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                            {/*<Link to='/admin/manage-roster/add-player'>*/}
+                            <Link to='/admin/manage-roster/add-player'>
                                 <ListItem button className="admin-menu-nested">
                                     <ListItemIcon>
                                         <PersonAddIcon />
                                     </ListItemIcon>
                                     <ListItemText inset primary="Add player" />
                                 </ListItem>
-                            {/*</Link>*/}
+                            </Link>
                         </List>
                     </Collapse>
+
                     <ListItem button>
                         <ListItemIcon><ImportContactsIcon /></ListItemIcon>
                         <ListItemText>Manage team</ListItemText>
                     </ListItem>
-                    <ListItem button onClick={() => this.handleMainMenuClick('manageMatches')}>
-                        <ListItemIcon><StorageIcon /></ListItemIcon>
-                        <ListItemText>Manage matches</ListItemText>
-                        {submenu.manageMatches ? <ExpandLessIcon /> : <ExpandMoreIcon />}}
-                    </ListItem>
+
+                    <Link to='/admin/manage-matches'>
+                        <ListItem button onClick={() => this.handleMainMenuClick('manageMatches')}>
+                            <ListItemIcon><StorageIcon /></ListItemIcon>
+                            <ListItemText>Manage matches</ListItemText>
+                            {submenu.manageMatches ? <ExpandLessIcon /> : <ExpandMoreIcon />}}
+                        </ListItem>
+                    </Link>
+
                     <Collapse in={submenu.manageMatches} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                            <ListItem button className="admin-menu-nested">
-                                <ListItemIcon>
-                                    <PlaylistAddIcon />
-                                </ListItemIcon>
-                                <ListItemText inset primary="Add match" />
-                            </ListItem>
+                            <Link to='/admin/manage-matches/add-edit-match'>
+                                <ListItem button className="admin-menu-nested">
+                                    <ListItemIcon>
+                                        <PlaylistAddIcon />
+                                    </ListItemIcon>
+                                    <ListItemText inset primary="Add match" />
+                                </ListItem>
+                            </Link>
                         </List>
                     </Collapse>
+
                     <Divider />
-                    <ListItem button>
-                        <ListItemIcon><PowerSettingsNewIcon /></ListItemIcon>
-                        <ListItemText>Logout</ListItemText>
-                    </ListItem>
+
+                    <Link to='/logout'>
+                        <ListItem button>
+                            <ListItemIcon><PowerSettingsNewIcon /></ListItemIcon>
+                            <ListItemText>Logout</ListItemText>
+                        </ListItem>
+                    </Link>
                 </List>
             </Drawer>
         );

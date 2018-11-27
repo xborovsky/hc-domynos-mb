@@ -31,7 +31,7 @@ const Alert = ({type, message, onClose}) => {
                     {message}
                 </span>
             }
-            action={[
+            action={onClose ? [
                 <IconButton
                     key="close"
                     aria-label="Close"
@@ -40,7 +40,7 @@ const Alert = ({type, message, onClose}) => {
                 >
                     <CloseIcon />
                 </IconButton>,
-            ]}
+            ] : null}
         />
     );
 };
@@ -48,7 +48,7 @@ const Alert = ({type, message, onClose}) => {
 Alert.propTypes = {
     type : PropTypes.oneOf(['error', 'info', 'success', 'warning']).isRequired,
     message : PropTypes.string.isRequired,
-    onClose : PropTypes.func.isRequired
+    onClose : PropTypes.func
 };
 
 export default Alert;
