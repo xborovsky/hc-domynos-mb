@@ -6,6 +6,7 @@ import Stats from './stats';
 import Matches from './matches';
 import Roster from './roster';
 import Login from './admin/login';
+import Logout from './admin/login/Logout';
 
 const Routes = () =>
     <>
@@ -14,6 +15,7 @@ const Routes = () =>
         <Route path="/roster" component={Roster} />
         <Route path="/matches" component={Matches} />
         <Route path="/login" component={Login} />
+        <Route path="/logout" component={Logout} />
     </>
 ;
 

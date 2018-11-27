@@ -11,7 +11,6 @@ const PlayersByPosition = ({ position, players }) =>
             {
                 players.map(player =>
                     <Grid item key={player.id} xs={12} sm={6} md={4} lg={3}>
-                        { console.log(player) }
                         <PlayerCard player={player} />
                     </Grid>
                 )

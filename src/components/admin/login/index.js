@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import queryString from 'query-string'
 
 import { formConfig } from './form-config';
 import { validateFormField } from '../../../util/form-validator';
@@ -17,11 +18,19 @@ class Login extends Component {
     state = {
         formConfig: formConfig,
         invalidMessage : null,
-        showAlert : false
+        showAlert : false,
+        showSuccess : false,
+        successMessage : null
     }
 
     componentDidMount() {
         this.usernameRef.focus();
+
+        const queryParams = queryString.parse(this.props.location.search);
+        if (queryParams.logoutSuccess) {
+            this.setState({ showSuccess : true, successMessage : 'Logout successful.' });
+            setTimeout(() => { this.handleAlertClose() }, 2000)
+        }
     }
 
     handleChange = (event) => {
@@ -72,12 +81,14 @@ class Login extends Component {
     handleAlertClose = () => {
         this.setState({
             invalidMessage : null,
-            showAlert : false
+            showAlert : false,
+            successMessage : null,
+            showSuccess : false
         });
     }
 
     render() {
-        const { formConfig, invalidMessage, showAlert } = this.state;
+        const { formConfig, invalidMessage, showAlert, showSuccess, successMessage } = this.state;
         const { loggedIn, logInError } = this.props;
 
         return (
@@ -85,6 +96,7 @@ class Login extends Component {
             <>
                 { showAlert && <Alert type="error" message={invalidMessage} onClose={this.handleAlertClose} /> }
                 { logInError && <Alert type="error" message={logInError} /> }
+                { showSuccess && <Alert type="success" message={successMessage} onClose={this.handleAlertClose} /> }
                 <div className="login-page">
                     <Paper className="form">
                         <form className="login-form" noValidate autoComplete="off" onSubmit={event => this.handleSubmit(event)}>
