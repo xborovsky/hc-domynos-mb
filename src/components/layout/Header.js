@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import * as logo from '../../resources/img/logo.png';
 
@@ -25,6 +26,7 @@ class Header extends Component {
 
     render() {
         const { menuOpen } = this.state;
+        const { loggedIn, loggedUser } = this.props;
 
         return (
             <>
@@ -38,7 +40,11 @@ class Header extends Component {
                         <Typography variant="h6" color="inherit" style={{ flexGrow: 1 }}>
                             <Link to="/">HC Domynos</Link>
                         </Typography>
-                        <Button color="inherit"><Link to="/login">Login</Link></Button>
+                        {
+                            loggedIn ?
+                                <span>Logged in as <u>{loggedUser}</u></span> :
+                                <Button color="inherit"><Link to="/login">Login</Link></Button>
+                        }
                     </Toolbar>
                 </AppBar>
                 <Menu open={menuOpen} onMenuToggle={(open) => this.handleMenuToggle(open)} />
@@ -47,4 +53,9 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    loggedIn : state.authReducer.loggedIn,
+    loggedUser : state.authReducer.loggedUser
+});
+
+export default connect(mapStateToProps)(Header);

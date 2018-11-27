@@ -6,8 +6,9 @@ export const logIn = (username, password) => ({
     password
 });
 
-export const logInSuccess = () => ({
-    type : actions.LOG_IN_SUCCESS
+export const logInSuccess = username => ({
+    type : actions.LOG_IN_SUCCESS,
+    username
 });
 
 export const logInError = error => ({
