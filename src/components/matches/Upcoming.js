@@ -5,6 +5,8 @@ import Slide from 'react-reveal/Slide';
 import Match from '../common/match';
 import { withLoading } from '../hoc/withLoading';
 import { fetchAllUpcoming } from '../../dao/match-dao';
+import { fetchList } from '../../dao/common-dao';
+import { refTypes } from '../../dao/ref-types';
 
 const UpcomingMatches = ({matches}) =>
     matches.map((match, cnt) =>
@@ -21,16 +23,23 @@ const UpcomingMatchesWithLoading = withLoading(UpcomingMatches);
 export default class Upcoming extends Component {
 
     state = {
+        teams : [],
         matches : [],
         showLoading : true
     };
 
     componentDidMount() {
-        fetchAllUpcoming()
-            .then(matches => {
-                this.setState({
-                    matches,
-                    showLoading : false
+        fetchList(refTypes.team).then(teams => {
+            this.setState({ teams });
+            fetchAllUpcoming()
+                .then(matches => {
+                    matches.forEach(match => {
+                        const homeTeam = teams.filter(team => team.id === match.home)[0].name;
+                        const awayTeam = teams.filter(team => team.id === match.away)[0].name;
+                        match.homeTeamName = homeTeam;
+                        match.awayTeamName = awayTeam;
+                    });
+                    this.setState({ matches, showLoading : false });
                 });
             });
     }

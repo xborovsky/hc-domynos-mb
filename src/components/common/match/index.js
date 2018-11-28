@@ -19,8 +19,8 @@ const Match = ({ match }) =>
                         <Grid container alignItems="stretch">
                             <Grid item xs={10}>
                                 <div className="match-team home">
-                                    <Avatar alt={match.home} src={`/img/logos/${match.localThmb}`} className="match-team-logo" />
-                                    {match.home}
+                                    <Avatar alt={match.homeTeamName} src={`/img/logos/${match.localThmb}`} className="match-team-logo" />
+                                    {match.homeTeamName}
                                 </div>
                             </Grid>
                             <Grid item xs={2} className="match-score">
@@ -30,8 +30,8 @@ const Match = ({ match }) =>
                         <Grid container alignItems="stretch">
                             <Grid item xs={10}>
                                 <div className="match-team away">
-                                    <Avatar alt={match.away} src={`/img/logos/${match.awayThmb}`} className="match-team-logo" />
-                                    {match.away}
+                                    <Avatar alt={match.awayTeamName} src={`/img/logos/${match.awayThmb}`} className="match-team-logo" />
+                                    {match.awayTeamName}
                                 </div>
                             </Grid>
                             <Grid item xs={2} className="match-score">

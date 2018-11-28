@@ -5,8 +5,8 @@ import Btn from '../common/button';
 import Match from '../common/match';
 import { withLoading } from '../hoc/withLoading';
 import { fetchUpcomingAndLastPlayed } from '../../dao/match-dao';
-
-//const LOAD_LIMIT = 6;
+import { fetchList } from '../../dao/common-dao';
+import { refTypes } from '../../dao/ref-types';
 
 const MatchesList = ({matches}) =>
     matches.map(match =>
@@ -20,38 +20,26 @@ const MatchesListWithLoading = withLoading(MatchesList);
 
 export default class Matches extends Component {
     state = {
+        teams: [],
         matches : [],
         showLoading : true
     }
 
     componentDidMount() {
-        fetchUpcomingAndLastPlayed()
-            .then(matches => {
-                this.setState({
-                    matches,
-                    showLoading : false
+        fetchList(refTypes.team).then(teams => {
+            this.setState({ teams });
+            fetchUpcomingAndLastPlayed()
+                .then(matches => {
+                    matches.forEach(match => {
+                        const homeTeam = teams.filter(team => team.id === match.home)[0].name;
+                        const awayTeam = teams.filter(team => team.id === match.away)[0].name;
+                        match.homeTeamName = homeTeam;
+                        match.awayTeamName = awayTeam;
+                    });
+                    this.setState({ matches, showLoading : false });
                 });
             });
     }
-        /*firebase.database().ref('matches')
-            .orderByKey().limitToFirst(LOAD_LIMIT)
-            .once('value')
-            .then(matchesRes => {
-                this.handleMatchesResults(matchesRes.val());
-            });
-    }
-
-    handleMatchesResults = (matches) => {
-        let current = [...this.state.matches];
-        Object.keys(matches).forEach(matchId => {
-            current.push({id : matchId, ...matches[matchId]});
-        });
-
-        this.setState({
-            matches : current,
-            showLoading : false
-        });
-    }*/
 
     linkToMatches = () => {
         // TODO
