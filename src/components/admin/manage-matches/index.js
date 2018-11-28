@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import { fetchAll } from '../../../dao/match-dao';
-import { fetchList } from '../../../dao/common-dao';
 import { refTypes } from '../../../dao/ref-types';
 import { deleteById } from '../../../dao/common-dao';
 import MatchesTable from './MatchesTable';
@@ -32,19 +31,8 @@ export default class ManageMatches extends Component {
     };
 
     componentDidMount() {
-        fetchList(refTypes.team).then(teams => {
-            this.setState({ teams });
-            fetchAll()
-                .then(matches => {
-                    matches.forEach(match => {
-                        const homeTeam = teams.filter(team => team.id === match.home)[0].name;
-                        const awayTeam = teams.filter(team => team.id === match.away)[0].name;
-                        match.homeTeamName = homeTeam;
-                        match.awayTeamName = awayTeam;
-                    });
-                    this.setState({ matches, showLoading : false })
-                });
-        });
+        fetchAll()
+            .then(matches => this.setState({ matches, showLoading : false }));
     }
 
     showDeleteMatchConfirm = match => {

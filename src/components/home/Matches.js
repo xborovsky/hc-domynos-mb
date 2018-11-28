@@ -6,8 +6,6 @@ import Btn from '../common/button';
 import Match from '../common/match';
 import { withLoading } from '../hoc/withLoading';
 import { fetchUpcomingAndLastPlayed } from '../../dao/match-dao';
-import { fetchList } from '../../dao/common-dao';
-import { refTypes } from '../../dao/ref-types';
 
 const MatchesList = ({matches}) =>
     matches.map(match =>
@@ -27,19 +25,8 @@ class Matches extends Component {
     }
 
     componentDidMount() {
-        fetchList(refTypes.team).then(teams => {
-            this.setState({ teams });
-            fetchUpcomingAndLastPlayed()
-                .then(matches => {
-                    matches.forEach(match => {
-                        const homeTeam = teams.filter(team => team.id === match.home)[0].name;
-                        const awayTeam = teams.filter(team => team.id === match.away)[0].name;
-                        match.homeTeamName = homeTeam;
-                        match.awayTeamName = awayTeam;
-                    });
-                    this.setState({ matches, showLoading : false });
-                });
-            });
+        fetchUpcomingAndLastPlayed()
+            .then(matches => this.setState({ matches, showLoading : false }));
     }
 
     linkToMatches = () => {

@@ -1,3 +1,4 @@
+import { fetchList } from './common-dao';
 import { refTypes } from './ref-types';
 import firebase from '../util/firebase';
 import { mapResponse } from '../util/firebase-mapper';
@@ -23,7 +24,7 @@ const fetchAllLastPlayed = async limit => { // TODO asi uplne nefunguje to razen
 
     const res = await builder.once('value');
     const matches = mapResponse(res);
-    return matches.reverse();
+    return appendTeamDetails(matches.reverse());
 }
 
 const fetchAllUpcoming = async limit => { // TODO asi uplne nefunguje to razeni + potrebna podminka where datum
@@ -36,7 +37,7 @@ const fetchAllUpcoming = async limit => { // TODO asi uplne nefunguje to razeni 
 
     const res = await builder.once('value');
     const matches = mapResponse(res);
-    return matches.reverse();
+    return appendTeamDetails(matches.reverse());
 }
 
 const fetchAll = () => {
@@ -57,6 +58,19 @@ const addMatch = (home, away, homeScore, awayScore, isSo, place, datetime) => {
 
     newRef.set({home, away, homeScore, awayScore, isSo, place, datetime});
     return newRef;
+};
+
+const appendTeamDetails = async matches => {
+    const teams = await fetchList(refTypes.team);
+    matches.forEach(match => {
+        const homeTeam = teams.filter(team => team.id === match.home)[0];
+        const awayTeam = teams.filter(team => team.id === match.away)[0];
+        match.homeTeamName = homeTeam.name;
+        match.homeTeamLogo = homeTeam.logo;
+        match.awayTeamName = awayTeam.name;
+        match.awayTeamLogo = awayTeam.logo;
+    });
+    return matches;
 };
 
 export {

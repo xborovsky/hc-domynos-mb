@@ -19,7 +19,7 @@ const Match = ({ match }) =>
                         <Grid container alignItems="stretch">
                             <Grid item xs={10}>
                                 <div className="match-team home">
-                                    <Avatar alt={match.homeTeamName} src={`/img/logos/${match.localThmb}`} className="match-team-logo" />
+                                    <Avatar alt={match.homeTeamName} src={`${match.homeTeamLogo}`} className="match-team-logo" />
                                     {match.homeTeamName}
                                 </div>
                             </Grid>
@@ -30,7 +30,7 @@ const Match = ({ match }) =>
                         <Grid container alignItems="stretch">
                             <Grid item xs={10}>
                                 <div className="match-team away">
-                                    <Avatar alt={match.awayTeamName} src={`/img/logos/${match.awayThmb}`} className="match-team-logo" />
+                                    <Avatar alt={match.awayTeamName} src={`${match.awayTeamLogo}`} className="match-team-logo" />
                                     {match.awayTeamName}
                                 </div>
                             </Grid>
