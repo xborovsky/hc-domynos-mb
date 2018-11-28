@@ -32,7 +32,7 @@ const Menu = ({open, onMenuToggle}) =>
                     <ListItemText>Matches</ListItemText>
                 </ListItem>
             </Link>
-            <Link to="/stats">
+            <Link to="/stats/players">
                 <ListItem button>
                     <ListItemIcon><PollIcon /></ListItemIcon>
                     <ListItemText>Stats</ListItemText>
