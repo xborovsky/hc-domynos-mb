@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Slide from 'react-reveal/Slide';
+import { withRouter } from 'react-router-dom';
 
 import Btn from '../common/button';
 import PlayersGallery from './PlayersGallery';
@@ -26,7 +27,7 @@ const PlayerSection = ({players}) =>
 
 const PlayerSectionWithLoading = withLoading(PlayerSection);
 
-export default class Players extends Component {
+class Players extends Component {
 
     state = {
         players : [],
@@ -44,7 +45,7 @@ export default class Players extends Component {
     }
 
     linkToPlayers = () => {
-        // TODO
+        this.props.history.push('/roster');
     }
 
     render() {
@@ -64,3 +65,5 @@ export default class Players extends Component {
     }
 
 }
+
+export default withRouter(Players);

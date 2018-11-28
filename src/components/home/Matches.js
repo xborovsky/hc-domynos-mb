@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
+import { withRouter } from 'react-router-dom';
 
 import Btn from '../common/button';
 import Match from '../common/match';
@@ -18,7 +19,7 @@ const MatchesList = ({matches}) =>
 
 const MatchesListWithLoading = withLoading(MatchesList);
 
-export default class Matches extends Component {
+class Matches extends Component {
     state = {
         teams: [],
         matches : [],
@@ -42,7 +43,7 @@ export default class Matches extends Component {
     }
 
     linkToMatches = () => {
-        // TODO
+        this.props.history.push('/matches/upcoming');
     }
 
     render() {
@@ -61,3 +62,5 @@ export default class Matches extends Component {
     }
 
 }
+
+export default withRouter(Matches);

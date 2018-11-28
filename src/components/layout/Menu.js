@@ -26,7 +26,7 @@ const Menu = ({open, onMenuToggle}) =>
                     <ListItemText>Players</ListItemText>
                 </ListItem>
             </Link>
-            <Link to="/matches">
+            <Link to="/matches/upcoming">
                 <ListItem button>
                     <ListItemIcon><EventIcon /></ListItemIcon>
                     <ListItemText>Matches</ListItemText>
