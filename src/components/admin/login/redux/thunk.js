@@ -8,7 +8,7 @@ import firebase from '../../../../util/firebase';
 export const logInUser = (username, password) => dispatch => {
     dispatch(logIn())
     firebase.auth().signInWithEmailAndPassword(username, password)
-        .then(res => dispatch(logInSuccess(username)))
+        .then(res => dispatch(logInSuccess(res.user)))
         .catch(err => dispatch(logInError(err.message)));
 };
 

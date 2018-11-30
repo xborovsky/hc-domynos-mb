@@ -6,9 +6,9 @@ export const logIn = (username, password) => ({
     password
 });
 
-export const logInSuccess = username => ({
+export const logInSuccess = firebaseUserRes => ({
     type : actions.LOG_IN_SUCCESS,
-    username
+    firebaseUserRes
 });
 
 export const logInError = error => ({

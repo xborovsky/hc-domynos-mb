@@ -1,9 +1,8 @@
 import * as actions from './constants';
 
 const initialState = {
-    loggedIn : false,
-    loggedUser : null,
-    error : false
+    error : false,
+    firebaseUser : null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -11,14 +10,14 @@ const authReducer = (state = initialState, action) => {
         case actions.LOG_IN:
             return {...state, error : false};
         case actions.LOG_IN_SUCCESS:
-            return {...state, loggedIn : true, loggedUser : action.username, error : false};
+            return {...state, error : false, firebaseUser : action.firebaseUserRes};
         case actions.LOG_IN_ERROR:
-            return {...state, loggedIn : false, error : action.error};
+            return {...state, firebaseUser : null, error : action.error};
 
         case actions.LOG_OUT:
             return {...state, error : false};
         case actions.LOG_OUT_SUCCESS:
-            return {...state, loggedIn : false, error : false, loggedUser : null};
+            return {...state, firebaseUser : null, error : false};
         case actions.LOG_OUT_ERROR:
             return {...state, error : action.error};
 

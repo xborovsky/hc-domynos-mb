@@ -12,7 +12,7 @@ import './App.css';
 class App extends Component {
 
   render() {
-    const { loggedIn } = this.props;
+    const loggedIn = this.props.loggedIn;
 
     return (
       <Router>
@@ -38,7 +38,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  loggedIn : state.authReducer.loggedIn
+  loggedIn : state.authReducer.firebaseUser !== null
 });
 
 export default connect(mapStateToProps)(App);

@@ -26,7 +26,7 @@ class Header extends Component {
 
     render() {
         const { menuOpen } = this.state;
-        const { loggedIn, loggedUser } = this.props;
+        const { loggedUser } = this.props;
 
         return (
             <>
@@ -41,8 +41,8 @@ class Header extends Component {
                             <Link to="/">HC Domynos</Link>
                         </Typography>
                         {
-                            loggedIn ?
-                                <span>Logged in as <u>{loggedUser}</u></span> :
+                            loggedUser ?
+                                <span>Logged in as <u>{loggedUser.email}</u></span> :
                                 <Button color="inherit"><Link to="/login">Login</Link></Button>
                         }
                     </Toolbar>
@@ -54,8 +54,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn : state.authReducer.loggedIn,
-    loggedUser : state.authReducer.loggedUser
+    loggedUser : state.authReducer.firebaseUser
 });
 
 export default connect(mapStateToProps)(Header);
