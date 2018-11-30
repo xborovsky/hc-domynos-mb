@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
+import { withRouter } from 'react-router-dom';
 
 import { fetchAll } from '../../../dao/match-dao';
 import { refTypes } from '../../../dao/ref-types';
@@ -15,7 +16,7 @@ const MatchesList = ({matches, onDelete, onEdit}) =>
 
 const ManageMatchesWithLoading = withLoading(MatchesList);
 
-export default class ManageMatches extends Component {
+class ManageMatches extends Component {
 
     state = {
         matches : [],
@@ -75,7 +76,7 @@ export default class ManageMatches extends Component {
     };
 
     handleEditMatch = match => {
-        console.log('TODO');
+        this.props.history.push(`/admin/manage-matches/edit/${match.id}`);
     };
 
     render() {
@@ -108,3 +109,5 @@ export default class ManageMatches extends Component {
     }
 
 }
+
+export default withRouter(ManageMatches);

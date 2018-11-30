@@ -11,7 +11,7 @@ const Select = ({ onChange, options, ...rest }) =>
             {
                 options.map(option =>
                     <option value={option.value}
-                            key={option.value}>
+                            key={option.value || -1}>
                         {option.text}
                     </option>
                 )

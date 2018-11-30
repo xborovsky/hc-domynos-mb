@@ -2,3 +2,8 @@
     margin-right: 0.5em !important;
     width: 50px !important;
 }
+
+#home_score, #away_score {
+    text-align: center;
+    font-size: 32pt;
+}

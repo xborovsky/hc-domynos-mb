@@ -32,3 +32,12 @@
     margin-top: 0.2em;
     margin-bottom: 0.2em;
 }
+
+.edit-form-wrapper h1,
+.edit-form-wrapper h2,
+.edit-form-wrapper h3,
+.edit-form-wrapper h4,
+.edit-form-wrapper h5,
+.edit-form-wrapper h6 {
+    color: black;
+}

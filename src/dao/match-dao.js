@@ -1,4 +1,4 @@
-import { fetchList } from './common-dao';
+import { fetchList, fetchById } from './common-dao';
 import { refTypes } from './ref-types';
 import firebase from '../util/firebase';
 import { mapResponse } from '../util/firebase-mapper';
@@ -52,11 +52,21 @@ const fetchAll = () => {
     });
 };
 
-const addMatch = (home, away, homeScore, awayScore, isSo, place, datetime) => {
+const fetchMatchById = async id => {
+    return fetchById(refTypes.match, id)
+        .then(async res => {
+            const list = [];
+            list.push(res.val());
+            const matchWithDetails = await appendTeamDetails(list);
+            return matchWithDetails[0];
+    });
+};
+
+const addMatch = (home, away, place, datetime) => {
     let ref = firebase.database().ref(refTypes.match),
         newRef = ref.push();
 
-    newRef.set({home, away, homeScore, awayScore, isSo, place, datetime});
+    newRef.set({home, away, place, datetime});
     return newRef;
 };
 
@@ -78,5 +88,6 @@ export {
     fetchAllLastPlayed,
     fetchAllUpcoming,
     fetchAll,
-    addMatch
+    addMatch,
+    fetchMatchById
 }

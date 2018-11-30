@@ -16,3 +16,8 @@ export const deleteById = async (refType, id) => {
         .child(id)
         .remove();
 };
+
+export const fetchById = async (refType, id) => {
+    return await firebase.database().ref(`${refType}/${id}`)
+        .once('value');
+};

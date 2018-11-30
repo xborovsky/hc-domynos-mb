@@ -79,7 +79,7 @@ export default class AdminMenu extends Component {
 
                     <Collapse in={submenu.manageMatches} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                            <Link to='/admin/manage-matches/add-edit-match'>
+                            <Link to='/admin/manage-matches/add-match'>
                                 <ListItem button className="admin-menu-nested">
                                     <ListItemIcon>
                                         <PlaylistAddIcon />

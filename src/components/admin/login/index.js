@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 import { formConfig } from './form-config';
 import { validateFormField } from '../../../util/form-validator';

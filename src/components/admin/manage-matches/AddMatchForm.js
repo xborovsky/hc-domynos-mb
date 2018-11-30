@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import { formConfig } from './form-config';
 import { fetchList } from '../../../dao/common-dao';
@@ -17,7 +15,7 @@ import Loader from '../../common/loader';
 
 import './ManageMatches.css';
 
-class AddEditMatch extends Component {
+class AddMatch extends Component {
 
     state = {
         formConfig : formConfig,
@@ -99,12 +97,9 @@ class AddEditMatch extends Component {
 
         const { formConfig } = this.state;
 
-        const [home, away, homeScore, awayScore, isSo, place, datetime] = [
+        const [home, away, place, datetime] = [
             formConfig.home.htmlData.value,
             formConfig.away.htmlData.value,
-            formConfig.homeScore.htmlData.value,
-            formConfig.awayScore.htmlData.value,
-            formConfig.so.htmlData.checked,
             formConfig.place.htmlData.value,
             formConfig.datetime.htmlData.value
         ];
@@ -117,7 +112,7 @@ class AddEditMatch extends Component {
             }
         }
 
-        addMatch(home, away, homeScore, awayScore, isSo, place, datetime)
+        addMatch(home, away, place, datetime)
             .then(res => this.props.history.push({
                 pathname : '/admin/manage-matches',
                 state : {
@@ -170,31 +165,6 @@ class AddEditMatch extends Component {
                                     fullWidth
                                     InputLabelProps={{ shrink: true }} />
 
-                                <Input onChange={(evt) => this.handleChange(evt)}
-                                    {...formConfig.homeScore.htmlData}
-                                    required={formConfig.homeScore.validations.required}
-                                    error={formConfig.homeScore.validations.errors && formConfig.homeScore.validations.errors.length}
-                                    InputLabelProps={{ shrink: true }}
-                                    className='score' />
-
-                                <Input onChange={(evt) => this.handleChange(evt)}
-                                    {...formConfig.awayScore.htmlData}
-                                    required={formConfig.awayScore.validations.required}
-                                    error={formConfig.awayScore.validations.errors && formConfig.awayScore.validations.errors.length}
-                                    InputLabelProps={{ shrink: true }}
-                                    className='score' />
-
-                                    <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            onChange={e => this.handleChange(e)}
-                                            {...formConfig.so.htmlData}
-                                            color="primary"
-                                            value="so" />
-                                    }
-                                    label={formConfig.so.htmlData.label}
-                                    />
-
                                 <Btn className="submit-btn" type="submit">Save</Btn>
                             </form>
                         </Paper>
@@ -206,4 +176,4 @@ class AddEditMatch extends Component {
 
 }
 
-export default withRouter(AddEditMatch);
+export default withRouter(AddMatch);
