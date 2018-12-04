@@ -56,7 +56,7 @@ const fetchMatchById = async id => {
     return fetchById(refTypes.match, id)
         .then(async res => {
             const list = [];
-            list.push(res.val());
+            list.push({id, ...res.val()});
             const matchWithDetails = await appendTeamDetails(list);
             return matchWithDetails[0];
     });
@@ -68,6 +68,18 @@ const addMatch = (home, away, place, datetime) => {
 
     newRef.set({home, away, place, datetime});
     return newRef;
+};
+
+const updateMatch = (match, place, datetime, homeScore, awayScore, isSo, goals) => {
+    return firebase.database()
+        .ref(`${refTypes.match}/${match.id}`)
+        .set({
+            home : match.home,
+            away : match.away,
+            homeScore, awayScore,
+            isSo, place,
+            datetime, goals
+        });
 };
 
 const appendTeamDetails = async matches => {
@@ -89,5 +101,6 @@ export {
     fetchAllUpcoming,
     fetchAll,
     addMatch,
-    fetchMatchById
+    fetchMatchById,
+    updateMatch
 }

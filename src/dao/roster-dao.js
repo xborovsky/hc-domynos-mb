@@ -7,6 +7,17 @@ const fetchAll = async () => {
     return await fetchList(refTypes.roster);
 };
 
+const fetchPlayersForSelect = async () => {
+    return await fetchList(refTypes.roster)
+        .then(players => {
+            var result = [{value : null, text : null}];
+            players.forEach(player => {
+                result.push({ value : player.id, text : player.name });
+            });
+            return result;
+        });
+};
+
 const fetchAllWithStats = () => {
     // TODO error handling
     return new Promise((resolve, reject) => {
@@ -46,5 +57,6 @@ const addPlayer = (name, number, position, imageUrl) => {
 export {
     fetchAll,
     fetchAllWithStats,
-    addPlayer
+    addPlayer,
+    fetchPlayersForSelect
 }

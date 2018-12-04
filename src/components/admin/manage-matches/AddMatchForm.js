@@ -4,8 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 
 import { formConfig } from './form-config';
-import { fetchList } from '../../../dao/common-dao';
-import { refTypes } from '../../../dao/ref-types';
+import { fetchTeamsForSelect } from '../../../dao/team-dao';
 import { Input, Select } from '../../common/forms';
 import Alert from '../../common/alert';
 import Btn from '../../common/button';
@@ -24,14 +23,8 @@ class AddMatch extends Component {
     };
 
     componentDidMount() {
-        fetchList(refTypes.team)
+        fetchTeamsForSelect()
             .then(teams => {
-                // potrebuju to do options narvat se spravnym formatem value - text
-                for(let i = 0; i < teams.length; i++){
-                    teams[i].value = teams[i]['id'];
-                    teams[i].text = teams[i]['name'];
-                }
-
                 this.setState({
                     formConfig : {
                         ...this.state.formConfig,

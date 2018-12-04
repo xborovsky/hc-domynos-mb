@@ -1,0 +1,1 @@
+export const domynos_id = 'AEu6H7jiWyn4EIbe9fa';

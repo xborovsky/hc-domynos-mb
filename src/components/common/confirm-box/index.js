@@ -26,7 +26,7 @@ const ConfirmBox = ({display, message, handleConfirm, handleCancel}) =>
 
 ConfirmBox.propTypes = {
     display : PropTypes.bool.isRequired,
-    message: PropTypes.string,
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     handleConfirm : PropTypes.func.isRequired,
     handleCancel : PropTypes.func.isRequired
 };
