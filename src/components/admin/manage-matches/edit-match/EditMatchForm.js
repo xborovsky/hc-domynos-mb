@@ -165,13 +165,8 @@ class EditMatchForm extends Component {
     };
 
     showConfirm = () => {
-        const { formConfig } = this.state;
-        const message = <ConfirmMessage
-            homeTeamName={formConfig.home.htmlData.value}
-            awayTeamName={formConfig.away.htmlData.value}
-            place={formConfig.place.htmlData.value}
-            datetime={formConfig.datetime.htmlData.value}
-        />;
+        const { formConfig, players } = this.state;
+        const message = <ConfirmMessage formConfig={formConfig} allPlayers={players} />;
 
         this.setState({
             actionConfirm : {
