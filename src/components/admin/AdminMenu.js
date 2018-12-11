@@ -16,26 +16,40 @@ import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import Collapse from '@material-ui/core/Collapse';
 import { Link } from 'react-router-dom';
 
+import './AdminMenu.css';
+
 export default class AdminMenu extends Component {
 
     state = {
+        selectedMain : null,
+        selectedSubmenu : null,
         submenu : {
             manageRoster : false,
             manageMatches : false
         }
     };
 
-    handleMainMenuClick = type => {
-        this.setState(prevState => {
-            return {
-                ...prevState,
-                submenu : {
-                    ...prevState.submenu,
-                    [type] : !prevState.submenu[type]
-                }
-            };
-        });
+    unpackSubmenu = type => {
+        const { submenu } = this.state;
+        if (!submenu[type]) {
+            const submenuCpy = {...submenu};
+            Object.keys(submenuCpy).forEach(submenuItem => {
+                submenuCpy[submenuItem] = submenuItem === type;
+            });
+
+            this.setState({submenu : submenuCpy});
+        }
     }
+
+    markSelected = (menuItem, submenu) => {
+        this.setState({ selectedMain : menuItem, selectedSubmenu : submenu });
+    };
+
+    isSelected = menuItem => {
+        console.log('isSelected', menuItem);
+        return menuItem === this.state.selectedMain ||
+            menuItem === this.state.selectedSubmenu;
+    };
 
     render() {
         const { submenu } = this.state;
@@ -44,7 +58,8 @@ export default class AdminMenu extends Component {
             <Drawer anchor="left" variant="permanent" className="admin-menu">
                 <List>
                     <Link to='/admin/manage-roster'>
-                        <ListItem button onClick={() => this.handleMainMenuClick('manageRoster')}>
+                        <ListItem button onClick={() => { this.unpackSubmenu('manageRoster'); this.markSelected('manageRoster'); } }
+                            className={this.isSelected('manageRoster') ? 'selected-main' : null}>
                             <ListItemIcon><PeopleIcon /></ListItemIcon>
                             <ListItemText>Manage roster</ListItemText>
                             {submenu.manageRoster ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -54,7 +69,8 @@ export default class AdminMenu extends Component {
                     <Collapse in={submenu.manageRoster} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
                             <Link to='/admin/manage-roster/add-player'>
-                                <ListItem button className="admin-menu-nested">
+                                <ListItem button className="admin-menu-nested" onClick={() => this.markSelected('manageRoster', 'addPlayer')}
+                                    className={this.isSelected('addPlayer') ? 'selected-sub' : null}>
                                     <ListItemIcon>
                                         <PersonAddIcon />
                                     </ListItemIcon>
@@ -64,23 +80,26 @@ export default class AdminMenu extends Component {
                         </List>
                     </Collapse>
 
-                    <ListItem button>
+                    <ListItem button onClick={() => this.markSelected('manageTeam')}
+                        className={this.isSelected('manageTeam') ? 'selected-main' : null}>
                         <ListItemIcon><ImportContactsIcon /></ListItemIcon>
                         <ListItemText>Manage team</ListItemText>
                     </ListItem>
 
                     <Link to='/admin/manage-matches'>
-                        <ListItem button onClick={() => this.handleMainMenuClick('manageMatches')}>
+                        <ListItem button onClick={() => { this.unpackSubmenu('manageMatches'); this.markSelected('manageMatches'); } }
+                            className={this.isSelected('manageMatches') ? 'selected-main' : null}>
                             <ListItemIcon><StorageIcon /></ListItemIcon>
                             <ListItemText>Manage matches</ListItemText>
-                            {submenu.manageMatches ? <ExpandLessIcon /> : <ExpandMoreIcon />}}
+                            {submenu.manageMatches ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                         </ListItem>
                     </Link>
 
                     <Collapse in={submenu.manageMatches} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
                             <Link to='/admin/manage-matches/add-match'>
-                                <ListItem button className="admin-menu-nested">
+                                <ListItem button className="admin-menu-nested" onClick={() => this.markSelected('manageMatches', 'addMatch')}
+                                    className={this.isSelected('addMatch') ? 'selected-sub' : null}>
                                     <ListItemIcon>
                                         <PlaylistAddIcon />
                                     </ListItemIcon>
