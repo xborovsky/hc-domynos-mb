@@ -1,5 +1,6 @@
 .header {
-    background-color: black;
+    /*background-color: black;*/
+    background-color: #182847;
     padding-top: 10px;
     padding-bottom: 10px;
     z-index: 10;
@@ -14,7 +15,8 @@
 }
 
 footer {
-    background-color: black;
+    /*background-color: black;*/
+    background-color: #182847;
     color: white;
     text-align: center;
     font-size: 12pt;
