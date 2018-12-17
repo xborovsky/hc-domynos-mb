@@ -21,6 +21,7 @@ class AddPlayerForm extends Component {
     }
 
     componentDidMount() {
+        this.nameRef.focus();
         /*if (this.props.editMode) {
             const player = null; // TODO load player!
             this.setState({
@@ -117,7 +118,8 @@ class AddPlayerForm extends Component {
                                 {...formConfig.name.htmlData}
                                 required={formConfig.name.validations.required}
                                 error={formConfig.name.validations.errors && formConfig.name.validations.errors.length}
-                                fullWidth />
+                                fullWidth
+                                inputRef={input => this.nameRef = input } />
 
                             <Input onChange={(evt) => this.handleChange(evt)}
                                 {...formConfig.number.htmlData}
