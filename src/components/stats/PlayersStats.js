@@ -11,6 +11,7 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import Loader from '../common/loader';
 import PlayerStatisticRow from './PlayerStatisticRow';
 import { sortData } from '../../util/data-sorter';
+import { fetchPlayerStats } from '../../dao/stats-dao';
 
 import './Stats.css';
 
@@ -22,6 +23,7 @@ class PlayersStats extends Component {
         sortBy : 'name',
         sortAsc : false,
         thConfig : [
+            { id : 'photo', title : '', isNumeric : false},
             { id : 'name', title : 'Name', isNumeric : false},
             { id : 'position', title : 'Position', isNumeric : false},
             { id : 'gp', title : 'Games Played', isNumeric : true},
@@ -32,15 +34,10 @@ class PlayersStats extends Component {
     }
 
     componentDidMount() {
-        // todo load real stats
-        fetch('/fake-data/players-stats.json')
-            .then(res => res.json())
-            .then(data => {
-                this.setState({
-                    stats : data,
-                    showLoading : false
-                })
-            })
+        fetchPlayerStats().then(res => this.setState({
+            stats : res,
+            showLoading : false
+        }));
     }
 
     sortBy = sortColumn => {

@@ -46,7 +46,6 @@ export default class AdminMenu extends Component {
     };
 
     isSelected = menuItem => {
-        console.log('isSelected', menuItem);
         return menuItem === this.state.selectedMain ||
             menuItem === this.state.selectedSubmenu;
     };

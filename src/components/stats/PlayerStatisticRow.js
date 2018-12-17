@@ -2,12 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import Avatar from '@material-ui/core/Avatar';
 
 const PlayerStatisticRow = ({stats, rowNum}) =>
     <TableRow>
         <TableCell numeric>{rowNum}</TableCell>
-        <TableCell>{stats.name} ({stats.no})</TableCell>
-        <TableCell>{stats.position}</TableCell>
+        <TableCell><Avatar alt={stats.player.name} src={`${stats.player.imageUrl || '/img/players/unknown.png'}`} /></TableCell>
+        <TableCell>{stats.player.name} ({stats.player.number})</TableCell>
+        <TableCell>{stats.player.position}</TableCell>
         <TableCell numeric>{stats.gp}</TableCell>
         <TableCell numeric>{stats.g}</TableCell>
         <TableCell numeric>{stats.a}</TableCell>

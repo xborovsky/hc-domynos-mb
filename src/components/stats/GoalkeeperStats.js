@@ -11,6 +11,7 @@ import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import Loader from '../common/loader';
 import GoalkeeperStatisticRow from './GoalkeeperStatisticRow';
 import { sortData } from '../../util/data-sorter';
+import { fetchGKStats } from '../../dao/stats-dao';
 
 export default class GoalkeeperStats extends Component {
 
@@ -18,6 +19,7 @@ export default class GoalkeeperStats extends Component {
         stats : [],
         showLoading : true,
         thConfig : [
+            { id : 'photo', title : '', isNumeric : false },
             { id : 'name', title : 'Name', isNumeric : false },
             { id : 'position', title : 'Position', isNumeric : false },
             { id : 'gp', title : 'Games Played', isNumeric : true },
@@ -30,15 +32,10 @@ export default class GoalkeeperStats extends Component {
     }
 
     componentDidMount() {
-        // todo load real stats
-        fetch('/fake-data/gk-stats.json')
-            .then(res => res.json())
-            .then(data => {
-                this.setState({
-                    stats : data,
-                    showLoading : false
-                })
-            })
+        fetchGKStats().then(res => {console.log(res);this.setState({
+            stats : res,
+            showLoading : false
+        })});
     }
 
     sortBy = sortColumn => {

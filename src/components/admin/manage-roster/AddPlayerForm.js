@@ -109,7 +109,7 @@ class AddPlayerForm extends Component {
             <Grid container>
                 <Grid item xs></Grid>
                 <Grid item xs={12} md={10} lg={8}>
-                    <h2>Add player</h2>
+                    <h2>Add player to roster</h2>
                     <Paper className="edit-form-wrapper">
                         {invalidMessage && <Alert type="error" message={invalidMessage} onClose={this.handleAlertClose} />}
                         <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
