@@ -4,7 +4,8 @@ import { fetchList } from './common-dao';
 import firebase from '../util/firebase';
 
 const fetchAll = async () => {
-    return await fetchList(refTypes.roster);
+    let data = await fetchList(refTypes.roster);
+    return data.sort((p1, p2) => parseInt(p1.number) - parseInt(p2.number));
 };
 
 const fetchPlayersForSelect = async () => {

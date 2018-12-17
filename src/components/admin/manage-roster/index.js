@@ -102,6 +102,7 @@ class ManageRoster extends Component {
                         handleConfirm={this.handleDeletePlayerConfirmed}
                         handleCancel={this.handleDeletePlayerCanceled} />
                 }
+                <h1>Manage roster</h1>
                 <Grid container>
                     <Grid item xs></Grid>
                     <Grid item xs={12} md={10} lg={8}>

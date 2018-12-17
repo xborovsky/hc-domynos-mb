@@ -14,24 +14,22 @@ const RosterTable = ({ roster, onDelete, onEdit }) =>
         <Table>
             <TableHead>
                 <TableRow>
-                    <TableCell numeric>&nbsp;</TableCell>
                     <TableCell>&nbsp;</TableCell>
                     <TableCell>Name</TableCell>
                     <TableCell numeric>Number</TableCell>
                     <TableCell>Position</TableCell>
-                    <TableCell>Actions</TableCell>
+                    <TableCell numeric>Actions</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {
-                    roster.map((player, cnt) =>
+                    roster.map(player =>
                         <TableRow key={player.number}>
-                            <TableCell numeric>{ cnt+1 }</TableCell>
                             <TableCell><Avatar alt={player.name} src={`${player.imageUrl || '/img/players/unknown.png'}`} /></TableCell>
                             <TableCell>{player.name}</TableCell>
                             <TableCell numeric>{player.number}</TableCell>
                             <TableCell>{player.position}</TableCell>
-                            <TableCell>
+                            <TableCell numeric>
                                 <EditIcon title="Edit" className="action-icon" onClick={() => onEdit(player)} />
                                 <CancelIcon title="Delete" className="action-icon" onClick={() => onDelete(player)} />
                             </TableCell>

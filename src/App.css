@@ -33,11 +33,11 @@
     margin-bottom: 0.2em;
 }
 
-.edit-form-wrapper h1,
-.edit-form-wrapper h2,
-.edit-form-wrapper h3,
-.edit-form-wrapper h4,
-.edit-form-wrapper h5,
-.edit-form-wrapper h6 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     color: black;
+    text-align: center;
 }
