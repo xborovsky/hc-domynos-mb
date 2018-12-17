@@ -18,6 +18,7 @@ export default class Roster extends Component {
     componentDidMount() {
         fetchAllWithStats()
             .then(roster => {
+                console.log(roster);
                 this.setState({
                     players : roster,
                     showLoading : false

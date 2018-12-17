@@ -1,5 +1,6 @@
 import { refTypes } from './ref-types';
 import { fetchList } from './common-dao';
+import { fetchPlayerStats, fetchGKStats } from './stats-dao';
 
 import firebase from '../util/firebase';
 
@@ -22,29 +23,23 @@ const fetchPlayersForSelect = async () => {
 const fetchAllWithStats = () => {
     // TODO error handling
     return new Promise((resolve, reject) => {
-        Promise.all([fetchList(refTypes.playerStats), fetchList(refTypes.gkStats)])
-            .then(responses => {
-                const playerStats = responses[0];
-                const gkStats = responses[1];
-                let playersData = [];
+        fetchAll().then(roster => {
+            Promise.all([fetchPlayerStats(), fetchGKStats()])
+                .then(responses => {
+                    const playerStats = responses[0];
+                    const gkStats = responses[1];
 
-                fetchList(refTypes.roster).then(players => {
-                    players.forEach(player => {
-                        if (player.position === 'GK') {
-                            player.stats = gkStats.filter(gkStat => gkStat['player_id'] === player.id);
-                        } else {
-                            player.stats = playerStats.filter(playerStat => playerStat['player_id'] === player.id);
-                        }
-                        if (player.stats && player.stats.length) {
-                            player.stats = player.stats[0];
-                        }
-                        playersData.push(player);
+                    roster.forEach(player => {
+                        player.stats = player.position === 'GK' ?
+                            gkStats.filter(gkStat => gkStat.gk_id === player.id) :
+                            playerStats.filter(playerStat => playerStat.player_id === player.id);
+                        player.stats = player.stats && player.stats.length ? player.stats[0] : {};
                     });
 
-                    resolve(playersData);
+                    resolve(roster);
                 });
-            });
         });
+    });
 };
 
 const addPlayer = (name, number, position, imageUrl) => {
