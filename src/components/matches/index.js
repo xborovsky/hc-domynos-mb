@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import MatchesRoutes from './MatchesRoutes';
 
@@ -14,15 +15,17 @@ export default class Matches extends Component {
     }
 
     render() {
-        const { selectedTab } = this.state;
-
         return (
             <div className="stats-wrapper">
-                <Tabs centered value={selectedTab} onChange={this.handleTabChange}>
-                    <Tab label="Upcoming" component="a" href="/matches/upcoming" />
-                    <Tab label="Last played" component="a" href="/matches/last-played" />
-                </Tabs>
-                <MatchesRoutes />
+                <Router>
+                    <>
+                        <Tabs centered value={this.state.selectedTab} onChange={this.handleTabChange} className="tabs">
+                            <Tab label="Upcoming" component={Link} to="/matches/upcoming" className="tab-item" />
+                            <Tab label="Last played" component={Link} to="/matches/last-played" className="tab-item" />
+                        </Tabs>
+                        <MatchesRoutes />
+                    </>
+                </Router>
             </div>
         );
     }

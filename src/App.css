@@ -41,3 +41,13 @@ h5 {
     color: black;
     text-align: center;
 }
+
+.tabs {
+    margin-top: 1em;
+    margin-bottom: 5em;
+}
+
+.tab-item {
+    color: black !important;
+    font-size: 11pt !important;
+}

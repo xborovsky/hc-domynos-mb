@@ -124,7 +124,7 @@ export default class GoalkeeperStats extends Component {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                { stats.map((gkStats, cnt) => <GoalkeeperStatisticRow stats={gkStats} rowNum={cnt+1} />) }
+                                { stats.map((gkStats, cnt) => <GoalkeeperStatisticRow stats={gkStats} rowNum={cnt+1} key={cnt} />) }
                             </TableBody>
                         </Table>
                     </Paper>
