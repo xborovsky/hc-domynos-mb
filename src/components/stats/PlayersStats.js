@@ -106,7 +106,7 @@ class PlayersStats extends Component {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                { stats.map((playerStats, cnt) => <PlayerStatisticRow stats={playerStats} rowNum={cnt+1} />) }
+                                { stats.map((playerStats, cnt) => <PlayerStatisticRow key={playerStats.id} stats={playerStats} rowNum={cnt+1} />) }
                             </TableBody>
                         </Table>
                     </Paper>

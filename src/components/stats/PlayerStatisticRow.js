@@ -18,7 +18,7 @@ const PlayerStatisticRow = ({stats, rowNum}) =>
 ;
 
 PlayerStatisticRow.propTypes = {
-    stats : PropTypes.arrayOf(PropTypes.object).isRequired,
+    stats : PropTypes.object.isRequired,
     rowNum : PropTypes.number.isRequired
 };
 
